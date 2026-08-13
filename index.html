@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BioBite | Where Biotechnology Meets a Better Future</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff7fc;
+            color: #2b1725;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+            background: rgba(255, 247, 252, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #f4c8e0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #e83e91;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #7b3fc6;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a2940;
+            margin-left: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #e83e91;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 8%;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 85% 20%, #ffd3eb 0, transparent 25%),
+                radial-gradient(circle at 15% 80%, #ead8ff 0, transparent 28%),
+                #fff7fc;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 50px;
+            background: #ffe0ef;
+            color: #c52d78;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(4rem, 9vw, 8rem);
+            line-height: 0.85;
+            letter-spacing: -7px;
+            color: #e83e91;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #7b3fc6;
+        }
+
+        .hero h2 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 570px;
+            color: #684b5d;
+            font-size: 1.05rem;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 23px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: 0.25s;
+        }
+
+        .primary {
+            background: #e83e91;
+            color: white;
+            box-shadow: 0 8px 25px rgba(232, 62, 145, 0.25);
+        }
+
+        .secondary {
+            border: 1px solid #e83e91;
+            color: #c52d78;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* DNA DECORATION */
+
+        .dna {
+            width: 260px;
+            height: 420px;
+            position: relative;
+            margin-right: 8%;
+            transform: rotate(12deg);
+        }
+
+        .dna::before,
+        .dna::after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(#e83e91, #7b3fc6);
+        }
+
+        .dna::before {
+            left: 40px;
+        }
+
+        .dna::after {
+            right: 40px;
+        }
+
+        .dna span {
+            position: absolute;
+            left: 50%;
+            width: 180px;
+            height: 7px;
+            transform: translateX(-50%) rotate(25deg);
+            background: #f08aba;
+            border-radius: 10px;
+        }
+
+        .dna span:nth-child(1) { top: 30px; }
+        .dna span:nth-child(2) { top: 90px; }
+        .dna span:nth-child(3) { top: 150px; }
+        .dna span:nth-child(4) { top: 210px; }
+        .dna span:nth-child(5) { top: 270px; }
+        .dna span:nth-child(6) { top: 330px; }
+
+        /* INTRO */
+
+        .intro {
+            text-align: center;
+            padding: 90px 8%;
+            background: white;
+        }
+
+        .section-label {
+            color: #e83e91;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .intro h2 {
+            font-size: 2.8rem;
+            margin: 12px 0;
+        }
+
+        .intro p {
+            max-width: 700px;
+            margin: auto;
+            color: #705968;
+        }
+
+        /* CARDS */
+
+        .topics {
+            padding: 90px 8%;
+            background: #fff7fc;
+        }
+
+        .topics-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .topics-header h2 {
+            font-size: 2.8rem;
+            margin-top: 10px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #f3c9df;
+            border-radius: 25px;
+            padding: 30px;
+            min-height: 220px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(135, 55, 105, 0.12);
+        }
+
+        .emoji {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #765e6d;
+            font-size: 0.95rem;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #d52f81;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* RESEARCH */
+
+        .research {
+            padding: 100px 8%;
+            background: #241522;
+            color: white;
+            text-align: center;
+        }
+
+        .research .section-label {
+            color: #ff7fba;
+        }
+
+        .research h2 {
+            font-size: 3rem;
+            margin: 12px 0;
+        }
+
+        .research p {
+            max-width: 650px;
+            margin: auto;
+            color: #e8cddd;
+        }
+
+        .research-box {
+            max-width: 900px;
+            margin: 45px auto 0;
+            padding: 35px;
+            border: 1px solid #744061;
+            border-radius: 25px;
+            text-align: left;
+            background: #321d2e;
+        }
+
+        .research-box h3 {
+            color: #ff7fba;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #fff;
+            color: #8a7180;
+            font-size: 0.85rem;
+        }
+
+        footer strong {
+            color: #e83e91;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav div:last-child {
+                display: none;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 70px 7%;
+            }
+
+            .hero-text {
+                margin: auto;
+            }
+
+            .dna {
+                display: none;
+            }
+
+            h1 {
+                letter-spacing: -4px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Bio<span>Bite</span> 🧬</div>
+
+        <div>
+            <a href="#topics">Explore</a>
+            <a href="#research">Research</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="tag">SCIENCE • FOOD • BIOTECHNOLOGY</div>
+
+            <h1>BIO<span>BITE</span></h1>
+
+            <h2>Where biotechnology meets a better future.</h2>
+
+            <p>
+                Exploring the science behind biotechnology, food, nutrition
+                and human health — one discovery at a time.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#topics" class="button primary">Explore BioBite →</a>
+                <a href="#research" class="button secondary">Research Reviews</a>
+            </div>
+
+        </div>
+
+
+        <div class="dna">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </section>
+
+
+    <section class="intro" id="about">
+
+        <div class="section-label">THE IDEA</div>
+
+        <h2>Science doesn't have to look boring.</h2>
+
+        <p>
+            BioBite is a student-led science communication project exploring
+            biotechnology, food science, nutrition and the technologies that
+            could shape our future.
+        </p>
+
+    </section>
+
+
+    <section class="topics" id="topics">
+
+        <div class="topics-header">
+
+            <div class="section-label">EXPLORE</div>
+
+            <h2>What's inside BioBite?</h2>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <div class="card">
+
+                <div class="emoji">🧬</div>
+
+                <h3>Biotechnology</h3>
+
+                <p>
+                    CRISPR, genetics, synthetic biology, fermentation
+                    and the technologies changing biology.
+                </p>
+
+                <a href="#">Coming soon →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">🍓</div>
+
+                <h3>Future of Food</h3>
+
+                <p>
+                    Cultivated food, precision fermentation,
+                    sustainable agriculture and food biotechnology.
+                </p>
+
+                <a href="#">Coming soon →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">🧠</div>
+
+                <h3>Nutrition × Biology</h3>
+
+                <p>
+                    Exploring the biology behind nutrients, metabolism,
+                    the microbiome and human health.
+                </p>
+
+                <a href="#">Coming soon →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">🔬</div>
+
+                <h3>Research Reviews</h3>
+
+                <p>
+                    Real scientific papers explained clearly,
+                    with citations and critical discussion.
+                </p>
+
+                <a href="#research">Explore →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">🧪</div>
+
+                <h3>My Lab Journey</h3>
+
+                <p>
+                    Documenting research experiences, laboratory learning
+                    and the process behind scientific discovery.
+                </p>
+
+                <a href="#">Coming soon →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">🌍</div>
+
+                <h3>BioBite Impact</h3>
+
+                <p>
+                    Taking science beyond the screen through education,
+                    community projects and student involvement.
+                </p>
+
+                <a href="#">Growing soon →</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="research" id="research">
+
+        <div class="section-label">RESEARCH REVIEWS</div>
+
+        <h2>Real papers. Simplified science.</h2>
+
+        <p>
+            BioBite will break down real scientific research into
+            understandable explanations while keeping the evidence,
+            limitations and uncertainty intact.
+        </p>
+
+
+        <div class="research-box">
+
+            <h3>🔬 Research Review #001</h3>
+
+            <p>
+                Your first research review will live here.
+                We'll choose a real scientific paper, understand the
+                methodology, evaluate the evidence and explain what
+                the findings actually mean.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <strong>BioBite 🩷🧬</strong>
+
+        <br>
+
+        Science doesn't have to look boring.
+
+    </footer>
+
+</body>
+</html>
